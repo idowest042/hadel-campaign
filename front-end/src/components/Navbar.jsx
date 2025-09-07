@@ -93,7 +93,7 @@ const Navbar = () => {
               <a href="#story" className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">
                 Our Story
               </a>
-              <a href="#https://flutterwave.com/donate/g4uabza00wyx" className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">
+              <a href="https://flutterwave.com/donate/g4uabza00wyx" className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">
                 Donate
               </a>
              
