@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, Search, Bell, User, Menu, X, DollarSign, Users, MessageCircle } from 'lucide-react';
+import { Heart, Menu, X, DollarSign, Users } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +40,7 @@ const Navbar = () => {
                 </span>
               </div>
 
-              {/* Desktop Navigation */}
+              {/* Desktop Navigation - Hidden on mobile */}
               <div className="hidden md:ml-8 md:flex md:items-center md:space-x-6">
                 <a href="#" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-red-600 transition-colors flex items-center">
                   <Users className="h-4 w-4 mr-1" />
@@ -49,27 +49,26 @@ const Navbar = () => {
                 <a href="#story" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-red-600 transition-colors">
                   Our Story
                 </a>
-               
               </div>
             </div>
 
-            {/* Right side - Search, notifications, user menu, and donate button */}
+            {/* Right side - Donate button and mobile menu */}
             <div className="flex items-center space-x-4">
-              {/* Donor count for mobile */}
+              {/* Donor count for mobile - Hidden on desktop */}
               <div className="md:hidden flex items-center text-sm text-gray-700">
                 <Users className="h-4 w-4 mr-1" />
                 <span>{donationCount}</span>
               </div>
 
-              {/* Donate button */}
+              {/* Donate button - Always visible */}
               <a href='https://flutterwave.com/donate/g4uabza00wyx' target="_blank" rel="noopener noreferrer">
-                <button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium py-2.5 px-5 rounded-full transition-all duration-300 flex items-center space-x-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium py-2 px-4 rounded-full transition-all duration-300 flex items-center space-x-1 shadow-md hover:shadow-lg">
                   <DollarSign className="h-4 w-4" />
-                  <span>Donate Now</span>
+                  <span className="hidden sm:inline">Donate</span>
                 </button>
               </a>
 
-              {/* Mobile menu button */}
+              {/* Mobile menu button - Only shown on mobile */}
               <div className="md:hidden">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -83,7 +82,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile menu - Only shown when hamburger is clicked */}
         {isMenuOpen && (
           <div className="md:hidden bg-white shadow-xl border-t">
             <div className="px-2 pt-2 pb-4 space-y-1">
@@ -91,12 +90,13 @@ const Navbar = () => {
                 <Users className="h-5 w-5 mr-3" />
                 <span>{donationCount} supporters</span>
               </a>
-              <a href="#" className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">
+              <a href="#story" className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">
                 Our Story
               </a>
-              <a href="#" className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">
-                Updates
+              <a href="#https://flutterwave.com/donate/g4uabza00wyx" className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">
+                Donate
               </a>
+             
             </div>
           </div>
         )}
